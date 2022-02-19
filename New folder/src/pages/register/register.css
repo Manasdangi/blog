@@ -1,0 +1,47 @@
+body{
+    background-image: url('https://startinfinity.s3.us-east-2.amazonaws.com/production/blog/post/27/main/hxz0RhMzDeHogUZK0JNA82JabI3IstKUUbYB3dD8.png');
+    background-size: cover;
+}
+.register{
+    height:calc(100vh- 50px);
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+   
+}
+.registertitle{
+    font-size: 40px;
+}
+.registerform{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.registerform > label{
+    margin:10px 0;
+}
+.registerinput{
+    padding: 10px;
+    background-color:white;
+    border:none;
+}
+.registerbutton{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color:rgb(44, 130, 228);
+    border:none;
+    color:white;
+    border-radius: 2px;
+}
+.registerloginbutton{
+    position: absolute;
+    top:60px;
+    right:20px;
+    background-color:lightcoral;
+    border-radius: 2px;
+    color:rgb(5, 4, 4);
+    padding:7px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border:none;
+}
