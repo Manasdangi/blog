@@ -1,4 +1,4 @@
-# About Projects
+# About Projects - Mern Blog Projects
 
 >>*I made a MERN project. Basically It is a Blog website.  *
 
