@@ -15,10 +15,9 @@ export default function Topbar() {
   return <div className="top">
 
    <div className="topleft">
-   <i className="topicon  fab fa-facebook-square"></i>
-  <i className="topicon fab fa-twitter-square"></i>
-  <i className="topicon fab fa-pinterest-square"></i>
-  <i className="topicon fab fa-instagram-square"></i>
+  <a target="_blank"  rel="noreferrer"  href="https://twitter.com/ManasRa46019319"><i class="fa-brands fa-twitter"></i></a>
+  <a target="_blank"  rel="noreferrer"  href="https://www.linkedin.com/in/manas-raj-9287051b1/"><i class="fa-brands fa-linkedin"> </i></a>
+  <a  target="_blank" rel="noreferrer"  href="https://www.instagram.com/manasraj_9669/"> <i class="fa-brands fa-instagram"></i></a>
   </div>
    <div className="topcenter">
        <ul className="toplist">
@@ -59,7 +58,6 @@ export default function Topbar() {
            </ul>
        )
       }  
-      <i className="topsearchicon fas fa-search"></i>
    </div>
   </div>;
 }

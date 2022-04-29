@@ -1,3 +1,4 @@
+
 .top{
 
     width:100%;
@@ -50,3 +51,6 @@
     cursor: pointer;
     margin-left:5px;
 }
+i {
+    padding: 5px;
+    }

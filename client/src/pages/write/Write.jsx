@@ -5,10 +5,12 @@ import axios   from "axios";
 import { useContext } from "react";
 
 export default function Write() {
+
 const [title,settitle]=useState("");
 const [desc,setdesc]=useState("");
 const [file,setfile]=useState(null);
 const {user} =useContext(Context)
+
 const handlesubmit=async (e)=>{
   e.preventDefault();
   const newPost={

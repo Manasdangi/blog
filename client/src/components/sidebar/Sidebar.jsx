@@ -1,49 +1,28 @@
-import {useState,useEffect} from 'react';
 import './sidebar.css';
-import axios from 'axios';
-import {Link} from "react-router-dom"
 
 export default function Sidebar() {
 
-const [cats,setcat]=useState([]);
 
-useEffect(()=>{
-  const getcats=async()=>{
-    const res=await axios.get("/categories");
-    setcat(res.data)
-  }
-  getcats()
-},[])
 
   return(
   <div className="sidebar">
   <div className="sidebaritem">
   <span className="sidebartitle">About me</span>
     <img
-     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkVnCJV5JH8JCrKYgirgUTb2dqF9CpO_8cVzX3AxsU18pco71MZWovH5w1UZtWgCAPAl0&usqp=CAU"
-     alt="" />
-        <p>My name is Manas Dangi.<br></br>
+     src="https://media-exp1.licdn.com/dms/image/C4E03AQEenlvamJ7SQQ/profile-displayphoto-shrink_800_800/0/1649530137324?e=1656547200&v=beta&t=rc4zvrE_yvkWSY5vKM5I1xPUIPq6HwZQYUjdJVkp8XE"
+     alt=""
+     className="sidebarimg"
+      />
+        <p>My name is Manas Raj.<br></br>
         Currently I am pursuing Bachelor of  technology in MNIT Jaipur<br></br>
       I am 3rd year Electrical engineering Student</p>
   </div>
   <div className="sidebaritem">
-        <span className="sidebartitle">Categories</span>
-  <ul className="sidebarlist">
-  {cats.map((c)=>(
-    <Link to={`/?cat=${c.name}`} className="link">
-    <li className="sidebarlistitem">{c.name}</li>
-    </Link>
-  ))}
-    
-      </ul>
-  </div>
-  <div className="sidebaritem">
-        <span className="sidebartitle">Follow Us</span>
+        <span className="sidebartitle">Follow Me</span>
            <div className="sidebarsocial" > 
-           <Link style={{"target":"_blank"}} proxyUrl="" to="https://twitter.com/ManasRa46019319"><i className="sidebaricon fab fa-twitter-square"></i></Link>
-           <Link to="https://www.linkedin.com/in/manas-raj-9287051b1/"><i className="sidebaricon fab fa-pinterest-square"></i></Link>
-           <Link to="https://www.instagram.com/manasraj_9669/"><i className="sidebaricon fab fa-instagram-square"></i></Link>
-  
+           <a target="_blank"  rel="noreferrer"  href="https://twitter.com/ManasRa46019319"><i class="fa-brands fa-twitter"></i></a>
+  <a target="_blank"  rel="noreferrer"  href="https://www.linkedin.com/in/manas-raj-9287051b1/"><i class="fa-brands fa-linkedin"> </i></a>
+  <a  target="_blank"  rel="noreferrer" href="https://www.instagram.com/manasraj_9669/"> <i class="fa-brands fa-instagram"></i></a>
   
            </div>
     </div>

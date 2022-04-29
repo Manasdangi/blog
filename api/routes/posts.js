@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const User = require("../models/User");
 const Post = require("../models/Post");
 
 //CREATE POST
@@ -70,17 +69,10 @@ router.get("/:id", async (req, res) => {
 //GET ALL POSTS
 router.get("/", async (req, res) => {
   const username = req.query.user;
-  const catName = req.query.cat;
   try {
     let posts;
     if (username) {
       posts = await Post.find({ username });
-    } else if (catName) {
-      posts = await Post.find({
-        categories: {
-          $in: [catName],
-        },
-      });
     } else {
       posts = await Post.find();
     }

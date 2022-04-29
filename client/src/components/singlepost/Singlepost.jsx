@@ -3,9 +3,10 @@ import { useLocation } from 'react-router-dom';
 import './singlepost.css'
 import axios from 'axios';
 import {Link} from "react-router-dom"
-import {Context} from '../../context/Context'
+import {Context} from '../../context/Context';
 
 export default function Singlepost() {
+
   const location =useLocation();
   const path=location.pathname.split("/")[2];
   const [post,setpost]=useState({});
@@ -33,6 +34,7 @@ export default function Singlepost() {
     window.location.replace("/")
     }catch(err){}
   }
+
   const handleupdate=async()=>{
     try{
       await axios.put(`/posts/${post._id}`,{
@@ -42,11 +44,12 @@ export default function Singlepost() {
     setupdatemode(false);
       }catch(err){}
   }
+
   return(
       <div className="singlepost">
        <div className="singlepostwrapper">
-       {post.photo && (<img src={pf + post.photo} alt="" 
-           className="singlepostimg" />) }
+       
+       {post.photo && (<img src={pf + post.photo} alt=""  className="singlepostimg" />) }
            {
              updatemode?(<input type="text" 
              autoFocus={true}
@@ -54,31 +57,33 @@ export default function Singlepost() {
               className="singleposttitleinput" 
               value={title} />):( <h1 className="singleposttitle">
           {title}
-          {post.username ===user?.username &&
-           ( <div className="singlepostedit">
+          {
+            post.username ===user?.username &&
+           (
+              <div className="singlepostedit">
            <i className="singleposticon fas fa-edit"
             onClick={()=>setupdatemode(true)}></i>
            <i className="singleposticon fas fa-trash-alt" 
            onClick={handledelete}></i>
-           </div>)  } 
+           </div>
+           )
+             } 
            
            </h1>)
            }
                  
            
        <div className="singlepostinfo">
-       <Link to={`/?user=${post.username}`} className="link">  <span className="singlepostauthor">Author: <b>{post.username}</b></span>
-         </Link>
+       <Link to={`/?user=${post.username}`} className="link">  <span className="singlepostauthor">Author: <b>{post.username}</b></span>  </Link>
            <span className="singlepostdate">{new Date(post.createdAt).toDateString()}</span>
        </div>
+      
        {updatemode?
        (<textarea className="singlepostdescinput" 
-        value={desc}  onChange={(e)=>setdesc(e.target.value)} />):
-        ( <p className="singlepostdesc" >{desc}</p>)}
-      {
-        updatemode && <button className="singlepostbutton" onClick={handleupdate}>Update</button>
-      
-      }
+        value={desc} 
+         onChange={(e)=>setdesc(e.target.value)} />):
+        (<p className="singlepostdesc" >{desc}</p>)}
+       { updatemode && <button className="singlepostbutton" onClick={handleupdate}>Update</button> }
        </div>
        
       </div>

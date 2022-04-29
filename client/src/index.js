@@ -7,7 +7,6 @@ ReactDOM.render(
   <ContextProvider>
        <App />
   </ContextProvider>
-
   ,
   document.getElementById('root')
 );
