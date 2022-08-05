@@ -1,0 +1,69 @@
+.sidebar {
+  flex: 3;
+  height: fit-content;
+  margin: 20px;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(212, 205, 195);
+}
+
+.sidebaritem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebartitle {
+  margin: 10px;
+  padding: 5px;
+  width: 80%;
+  border-top: solid 1px #a7a4a4;
+  border-bottom: solid 1px #a7a4a4;
+  text-align: center;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 12px;
+  line-height: 19px;
+  color: #222222;
+  font-weight: 600;
+}
+.sidebaritem > img {
+  margin-top: 15px;
+  /* width: 250px;
+    height: 250px; */
+}
+.sidebaritem > p {
+  padding: 30px;
+}
+
+.sidebarlist {
+  list-style-type: none;
+  margin-bottom: 30px;
+}
+.sidebarlistitem {
+  display: inline-block;
+  width: 50%;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.sidebarsocial {
+  margin-top: 15px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebaricon {
+  font-size: 16px;
+  margin-left: 10px;
+}
+.sidebarimg {
+  width: 270px;
+}
+.aboutme {
+  font-family: sans-serif;
+}

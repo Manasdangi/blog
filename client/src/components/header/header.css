@@ -1,0 +1,19 @@
+.header {
+  margin-top: 60px;
+}
+
+.headerTitles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Lora', serif;
+  color: #444;
+}
+
+.headerImg {
+  width: 100%;
+  height: 490px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
