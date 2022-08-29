@@ -3,9 +3,14 @@ const User = require('../models/User');
 const Post = require('../models/Post');
 const bcrypt = require('bcrypt');
 
+
 //UPDATE
 router.put('/:id', async (req, res) => {
   if (req.body.userId === req.params.id) {
+    console.log(req.body.userId);
+    console.log(req.params.id);
+    console.log(req.body.password);
+    console.log(req.body.email);
     if (req.body.password) {
       const salt = await bcrypt.genSalt(10);
       req.body.password = await bcrypt.hash(req.body.password, salt);

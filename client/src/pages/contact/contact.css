@@ -1,11 +1,5 @@
 .contact {
-  font-weight: bold;
   text-align: center;
-  width: 100%;
-  align-items: center;
-  height: 500px;
-  margin: auto;
-  margin: 100px;
-  font-weight: 100;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 1px;
+  word-spacing: 1px;
 }

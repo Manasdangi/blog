@@ -60,3 +60,21 @@
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
+
+@media only screen and (max-width: 500px) {
+  .post {
+    width: 100%;
+  }
+
+  .postTitle {
+    font-size: 24px;
+  }
+
+  .postDate {
+    font-size: 14px;
+  }
+
+  .postDesc {
+    font-size: 16px;
+  }
+}

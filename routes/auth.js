@@ -5,6 +5,18 @@ const bcrypt = require('bcrypt');
 //REGISTER
 router.post('/register', async (req, res) => {
   try {
+    const user_check = await User.findOne({ username: req.body.username });
+    if (user_check) {
+      console.log('User  already exists');
+      return res.status(400).json('User already exists');
+    }
+
+    const email_check = await User.findOne({ email: req.body.email });
+    if (email_check) {
+      console.log('email already registered');
+      return res.status(400).json('email already registered');
+    }
+    //console.log('failed');
     const salt = await bcrypt.genSalt(10);
     const hashedPass = await bcrypt.hash(req.body.password, salt);
 
@@ -13,7 +25,6 @@ router.post('/register', async (req, res) => {
       email: req.body.email,
       password: hashedPass,
     });
-
     const user = await newUser.save();
     res.status(200).json(user);
   } catch (err) {

@@ -8,7 +8,7 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
-
+  const [error_print, setError_print] = useState('error it is');
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
@@ -18,12 +18,15 @@ export default function Register() {
         email,
         password,
       });
+
       res.data && window.location.replace('/login');
     } catch (err) {
-      console.log(err);
+      if (err.response.status === 400) setError_print(err.response.data);
+      else setError_print('something went wrong');
       setError(true);
     }
   };
+
   return (
     <div className="register">
       <span className="registerTitle">Register</span>
@@ -59,9 +62,7 @@ export default function Register() {
         </Link>
       </button>
       {error && (
-        <span style={{ color: 'red', marginTop: '10px' }}>
-          Something went wrong!
-        </span>
+        <span style={{ color: 'red', marginTop: '10px' }}>{error_print}</span>
       )}
     </div>
   );

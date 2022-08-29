@@ -90,4 +90,16 @@ router.get('/', async (req, res) => {
   }
 });
 
+//DELETE ALL POSTS
+router.delete('/', async (req, res) => {
+  try {
+    let user_name = req.body.answer;
+    console.log(user_name);
+    const deletedPost = await Post.deleteMany({ username: user_name });
+    console.log(deletedPost);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

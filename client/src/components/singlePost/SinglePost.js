@@ -16,7 +16,7 @@ export default function SinglePost() {
   const [desc, setDesc] = useState('');
   const [updateMode, setUpdateMode] = useState(false);
   const [array, setarray] = useState([]);
-
+  
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get('/posts/' + path);
@@ -27,7 +27,7 @@ export default function SinglePost() {
     };
     getPost();
   }, [path]);
-  console.log(array);
+  //console.log(array);
 
   const handleDelete = async () => {
     try {
@@ -57,7 +57,7 @@ export default function SinglePost() {
     <div className="singlePost">
       <div className="singlePostWrapper">
         {post.photo && (
-          <img src={PF + post.photo} alt="" className="singlePostImg" />
+          <img src={PF + post.photo} alt="pic" className="singlePostImg" />
         )}
         {updateMode ? (
           <input

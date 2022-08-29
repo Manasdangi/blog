@@ -1,22 +1,26 @@
 import './settings.css';
 import Sidebar from '../../components/sidebar/Sidebar';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Context } from '../../context/Context';
 import axios from 'axios';
 
 export default function Settings() {
   const [file, setFile] = useState(null);
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [success, setSuccess] = useState(false);
-
+  const [checkValidUserName,setCheckValidUserName]=useState(true);
   const { user, dispatch } = useContext(Context);
   const PF = 'http://localhost:5000/images/';
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  useEffect(()=>{
+    setUsername(user.username);
+    setPassword(user.password);
+  },[])
 
+  const handleSubmit = async (e) => {
+    
+    e.preventDefault();
     dispatch({ type: 'UPDATE_START' });
     const updatedUser = {
       userId: user._id,
@@ -39,22 +43,24 @@ export default function Settings() {
     try {
       const res = await axios.put('/users/' + user._id, updatedUser);
       setSuccess(true);
+      console.log(res.data);
       dispatch({ type: 'UPDATE_SUCCESS', payload: res.data });
     } catch (err) {
       dispatch({ type: 'UPDATE_FAILURE' });
     }
   };
 
+
   const handleDelete = async () => {
     try {
-      // await axios.delete(`/users/${user._id}`, {
-      //   data: { userId: user._id},
-      // });
-      // window.location.replace("/");
+      //   await axios.delete('/posts', { data: { answer: user.username } });
+      // await axios.delete('/auth')
+      //await axios.delete('/user')
     } catch (err) {
       console.log(err);
     }
   };
+  
   return (
     <div className="settings">
       <div className="settingsWrapper">
@@ -86,18 +92,13 @@ export default function Settings() {
           <label>Username</label>
           <input
             type="text"
-            placeholder={user.username}
+            placeholder={username}
             onChange={(e) => setUsername(e.target.value)}
-          />
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder={user.email}
-            onChange={(e) => setEmail(e.target.value)}
           />
           <label>Password</label>
           <input
             type="password"
+            placeholder="Edit your password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="settingsSubmit" type="submit">
@@ -110,6 +111,15 @@ export default function Settings() {
               Profile has been updated...
             </span>
           )}
+          {
+            !setCheckValidUserName  && (
+              <span
+              style={{ color: 'red', textAlign: 'center', marginTop: '20px' }}
+            >
+              Enter valid Username
+            </span>
+            )
+          }
         </form>
       </div>
       <Sidebar />

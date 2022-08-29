@@ -15,22 +15,23 @@ export default function Write() {
     var catitem = document.getElementById('catlist');
     var chks = catitem.getElementsByTagName('INPUT');
 
-    for (var i = 0; i < chks.length; i++) {
+    for (let i = 0; i < chks.length; i++) {
       if (chks[i].checked) {
         selected.push(chks[i].value);
       }
     }
     var categories = [];
-    for (var j = 0; j < selected.length; j++) {
+    for (let j = 0; j < selected.length; j++) {
       categories.push(selected[j]);
     }
-    categories.push(selected[0]);
+// categories.push(selected[0]);
     const newPost = {
       username: user.username,
       title,
       desc,
       categories,
     };
+    
     if (file) {
       const data = new FormData();
       const filename = Date.now() + file.name;
@@ -100,13 +101,11 @@ export default function Write() {
           <label> love</label>
           <input type="checkbox" id="cat" value="friendship" />
           <label> friendship</label>
-          <input type="checkbox" id="cat" value="friendship" />
-          <label> friendship</label>
           <input type="checkbox" id="cat" value="health" />
           <label> health</label>
           <input type="checkbox" id="cat" value="socialmedia" />
           <label> socialmedia</label>
-          <input type="checkbox" id="cat" value="" />
+          <input type="checkbox" id="cat" value="college" />
           <label> college</label>
           <br></br>
         </div>
